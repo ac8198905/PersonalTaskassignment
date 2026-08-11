@@ -268,5 +268,5 @@ GET /api/tasks?status=todo&sortBy=priority&order=desc
 ## License
 
 This project is for educational/personal use.
-#   P e r s o n a l T a s k a s s i g n m e n t  
- 
+#
+# PersonalTaskassignment
