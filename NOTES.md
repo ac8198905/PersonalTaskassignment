@@ -1,0 +1,8 @@
+### 1. Data Model and API Changes for Multiple Users
+To support multiple users, I would introduce a `User` model (with username, email, and hashed password) and add a `userId` reference field to the `Task` schema to associate each task with its owner. The API would require an authentication layer (like JWT), and the backend controllers would need to be updated to extract the `userId` from the authenticated request, ensuring that all `find`, `update`, and `delete` operations are strictly scoped to the currently logged-in user.
+
+### 2. Performance Concerns for Thousands of Tasks
+The primary performance concern would be the latency and memory overhead of fetching and rendering thousands of tasks simultaneously on the frontend. To address this, I would implement cursor-based pagination or offset pagination (`limit` and `skip`) on the backend API, add database indexes on frequently queried fields (like `status` or `createdAt`), and use virtualization or infinite scrolling in the React frontend to only render the DOM elements currently visible on the screen.
+
+### 3. Use of AI Coding Tools
+Yes, I used an AI coding assistant during this task to help with styling and debugging. One instance where I had to correct its approach was when adding the dark theme and glassmorphism effect; the AI applied transparent `rgba` backgrounds to all form inputs, which inadvertently made the native dropdown `<option>` elements unreadable against the transparent background. I had to intervene and instruct the AI to specifically add a solid background color override for the `<select option>` elements to restore readability.
